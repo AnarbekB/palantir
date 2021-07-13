@@ -24,10 +24,12 @@ public class Site {
 
     protected int successHttpCode;
 
-    protected int notFoundCode;
+    protected int notFoundHttpCode;
+
+    protected boolean active;
 
     public Site() {
         this.successHttpCode = 200;
-        this.notFoundCode = 404;
+        this.notFoundHttpCode = 404;
     }
 }

@@ -1,3 +1,54 @@
 spring:
   application:
     name: palantir
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+    password: '@db.password@'
+    type: com.zaxxer.hikari.HikariDataSource
+    url: '@db.url@'
+    username: '@db.user@'
+  flyway:
+    enabled: true
+    password: '@db.password@'
+    schemas: products
+    table: schema_version
+    url: '@db.url@'
+    user: '@db.user@'
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        default_schema: products
+        id:
+          new_generator_mappings: false
+  kafka:
+    bootstrap-servers: ${kafka_bootstrap_servers:localhost:9092}
+    properties:
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username=${kafka_username:'admin'} password=${kafka_password:'admin-secret'};
+        mechanism: PLAIN
+      security:
+        protocol: SASL_PLAINTEXT
+    consumer:
+      auto-offset-reset: earliest
+      group-id: example
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 1
+      fetch-max-wait: 36000
+      enable-auto-commit: false
+      client-id: example
+    producer:
+      client-id: example
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+    jaas:
+      enabled: true
+    listener:
+      poll-timeout: 1800000
+      concurrency: 1
+      ack-mode: manual_immediate

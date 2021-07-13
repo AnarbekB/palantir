@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class SiteRepositoryRepositoryAdapter implements SiteRepository {
+public class SiteJpaRepositoryAdapter implements SiteRepository {
     private final SiteJpaRepository jpaRepository;
 
     @Override

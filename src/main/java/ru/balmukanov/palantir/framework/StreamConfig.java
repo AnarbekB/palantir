@@ -15,7 +15,7 @@ public class StreamConfig {
     @Bean
     public ListenerContainerCustomizer<AbstractMessageListenerContainer<Object, Object>> listenerContainerCustomizer() {
         SeekToCurrentErrorHandler handler = new SeekToCurrentErrorHandler();
-        handler.addNotRetryableExceptions(AdapterMappingException.class);
+        handler.addNotRetryableException(AdapterMappingException.class);
         return (container, destinationName, group) -> container.setErrorHandler(handler);
     }
 }
