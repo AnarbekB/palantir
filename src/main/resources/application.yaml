@@ -12,7 +12,7 @@ spring:
   flyway:
     enabled: true
     password: '@db.password@'
-    schemas: products
+    schemas: palantir
     table: schema_version
     url: '@db.url@'
     user: '@db.user@'
@@ -20,7 +20,7 @@ spring:
     database: postgresql
     properties:
       hibernate:
-        default_schema: products
+        default_schema: palantir
         id:
           new_generator_mappings: false
   cloud:
