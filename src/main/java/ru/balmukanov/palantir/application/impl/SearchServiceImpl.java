@@ -19,6 +19,6 @@ public class SearchServiceImpl implements SearchService {
     public void findUser(SearchUserRequest request) {
         var result = new HashMap<String, String>();
         result.put("vk", "https://vk.com/gross_herz");
-        eventPublisher.publishEvent(new SearchUserCompletedEvent(new User("test", result)));
+        eventPublisher.publishEvent(new SearchUserCompletedEvent(new User(request.getQuery(), result)));
     }
 }

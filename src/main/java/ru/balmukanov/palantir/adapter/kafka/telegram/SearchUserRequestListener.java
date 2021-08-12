@@ -22,7 +22,7 @@ public class SearchUserRequestListener {
             logger.trace("Request: {}", request);
         }
 
-        //todo mapper here
-        searchService.findUser(new SearchUserRequest());
+        //todo mapper here from SearchUserRequestDto to SearchUserRequest
+        searchService.findUser(new SearchUserRequest(request.getQuery()));
     }
 }
