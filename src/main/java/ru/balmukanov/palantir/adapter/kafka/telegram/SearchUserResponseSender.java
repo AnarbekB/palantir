@@ -19,7 +19,7 @@ public class SearchUserResponseSender {
 
     @EventListener
     public void sendSearchUserResponse(SearchUserCompletedEvent event) {
-        SearchResponseDto response = dtoMapper.mapToDto(event);
+        SearchUserResponseDto response = dtoMapper.mapToDto(event);
 
         logger.info("Sending search response for user #{} finds={}", response.getQuery(), response.getFinds());
         if (logger.isTraceEnabled()) {

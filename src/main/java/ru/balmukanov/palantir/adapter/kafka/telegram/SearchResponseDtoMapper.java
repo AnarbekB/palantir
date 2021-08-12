@@ -15,10 +15,15 @@ public class SearchResponseDtoMapper {
         this.modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
     }
 
-    public SearchResponseDto mapToDto(SearchUserCompletedEvent source) {
+    public SearchUserResponseDto mapToDto(SearchUserCompletedEvent source) {
         try {
             User user = source.getSource();
-            return modelMapper.map(user, SearchResponseDto.class);
+            SearchUserResponseDto dto = modelMapper.map(user, SearchUserResponseDto.class);
+            if (!dto.finds.isEmpty()) {
+                dto.setFind(true);
+            }
+
+            return dto;
         } catch (Exception e) {
             throw new AdapterMappingException(e);
         }

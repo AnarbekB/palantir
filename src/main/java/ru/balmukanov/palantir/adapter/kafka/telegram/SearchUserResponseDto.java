@@ -9,7 +9,8 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchResponseDto {
+public class SearchUserResponseDto {
+    private boolean isFind = false;
     protected String query;
     protected Map<String, String> finds;
 }
