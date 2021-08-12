@@ -5,18 +5,6 @@ volumes:
     driver: local
 
 services:
-  palantir-postgres:
-    container_name: palantir-postgres
-    image: postgres:10.1
-    ports:
-      - "5431:5432"
-    environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=palantir
-    volumes:
-      - "postgres_data:/var/lib/postgresql/data"
-
   zookeeper:
     image: wurstmeister/zookeeper
     expose:
