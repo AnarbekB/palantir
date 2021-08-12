@@ -18,7 +18,7 @@ public class SearchUserResponseSender {
     private final SearchResponseDtoMapper dtoMapper;
 
     @EventListener
-    public void sendSearchUserResponse(SearchUserCompletedEvent event) {
+    public void send(SearchUserCompletedEvent event) {
         SearchUserResponseDto response = dtoMapper.mapToDto(event);
 
         logger.info("Sending search response for user #{} finds={}", response.getQuery(), response.getFinds());
