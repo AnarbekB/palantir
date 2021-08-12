@@ -17,7 +17,7 @@ public class SearchUserRequestListener {
 
     @StreamListener(ChannelBinding.CHANNEL_USER_SEARCH_RQ)
     public void findUsers(SearchUserRequestDto request) {
-        logger.info("Received request for user #{}", request.getQuery());
+        logger.info("Received request for user {}", request.getQuery());
         if (logger.isTraceEnabled()) {
             logger.trace("Request: {}", request);
         }
