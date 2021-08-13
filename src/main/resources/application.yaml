@@ -22,3 +22,6 @@ spring:
         mechanism: PLAIN
       security:
         protocol: SASL_PLAINTEXT
+service:
+  habr:
+    url: https://habr.com/
