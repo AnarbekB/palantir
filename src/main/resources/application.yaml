@@ -24,4 +24,6 @@ spring:
         protocol: SASL_PLAINTEXT
 service:
   habr:
-    url: https://habr.com/
+    url: https://habr.com
+  github:
+    url: https://github.com
