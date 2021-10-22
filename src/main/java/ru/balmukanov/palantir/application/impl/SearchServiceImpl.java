@@ -9,6 +9,8 @@ import ru.balmukanov.palantir.application.api.SearchCollector;
 import ru.balmukanov.palantir.application.api.request.SearchUserRequest;
 import ru.balmukanov.palantir.domain.User;
 
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class SearchServiceImpl implements SearchService {
@@ -17,7 +19,7 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public void findUser(SearchUserRequest request) {
-        var result = searchCollector.collect(request.getQuery());
+        Map<String, String> result = searchCollector.collect(request.getQuery());
         eventPublisher.publishEvent(new SearchUserCompletedEvent(new User(request.getQuery(), result)));
     }
 }

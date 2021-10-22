@@ -27,3 +27,5 @@ service:
     url: https://habr.com
   github:
     url: https://github.com
+server:
+  port: 8082
