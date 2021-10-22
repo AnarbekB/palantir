@@ -10,6 +10,7 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 public class User {
+    private String requestId;
     protected String query;
 
     protected Map<String, String> finds;

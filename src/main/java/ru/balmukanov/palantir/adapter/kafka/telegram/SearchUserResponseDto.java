@@ -10,6 +10,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SearchUserResponseDto {
+    private String requestId;
     private boolean isFind = false;
     protected String query;
     protected Map<String, String> finds;

@@ -18,7 +18,7 @@ public class GitHubServiceAdapter implements SearchGate {
         try {
             response = gitHubFeignClient.user(username);
             if (response.status() == HttpStatus.NOT_FOUND.value()) {
-                throw new UserNotFoundException();
+                throw new UserNotFoundException(username);
             }
 
             return response.request().url();

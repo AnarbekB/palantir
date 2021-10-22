@@ -1,8 +1,7 @@
 package ru.balmukanov.palantir.adapter.kafka.telegram;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.MessageDeliveryException;
 import org.springframework.messaging.support.MessageBuilder;
@@ -11,9 +10,9 @@ import ru.balmukanov.palantir.adapter.kafka.ChannelBinding;
 import ru.balmukanov.palantir.application.api.event.SearchUserCompletedEvent;
 
 @Component
+@Slf4j
 @RequiredArgsConstructor
-public class SearchUserResponseSender {
-    private static final Logger logger = LoggerFactory.getLogger(SearchUserResponseSender.class);
+public class TelegramServiceAdapter {
     private final ChannelBinding channelBinding;
     private final SearchResponseDtoMapper dtoMapper;
 
@@ -21,9 +20,9 @@ public class SearchUserResponseSender {
     public void send(SearchUserCompletedEvent event) {
         SearchUserResponseDto response = dtoMapper.mapToDto(event);
 
-        logger.info("Sending search response for user #{} finds={}", response.getQuery(), response.getFinds());
-        if (logger.isTraceEnabled()) {
-            logger.trace("Response: {}", response);
+        log.info("Sending search response for user #{} finds={}", response.getQuery(), response.getFinds());
+        if (log.isTraceEnabled()) {
+            log.trace("Response: {}", response);
         }
 
         boolean published = channelBinding.searchUserResponse().send(MessageBuilder.withPayload(response).build());

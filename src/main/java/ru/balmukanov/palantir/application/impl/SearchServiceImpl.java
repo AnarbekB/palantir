@@ -20,6 +20,6 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public void findUser(SearchUserRequest request) {
         Map<String, String> result = searchCollector.collect(request.getQuery());
-        eventPublisher.publishEvent(new SearchUserCompletedEvent(new User(request.getQuery(), result)));
+        eventPublisher.publishEvent(new SearchUserCompletedEvent(new User(request.getRequestId(), request.getQuery(), result)));
     }
 }

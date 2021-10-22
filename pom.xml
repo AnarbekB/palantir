@@ -19,14 +19,6 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud-stream.version>3.0.8.RELEASE</spring-cloud-stream.version>
-
-        <db.host.name>localhost</db.host.name>
-        <db.host.port>5431</db.host.port>
-        <db.name>palantir</db.name>
-        <db.url>jdbc:postgresql://${db.host.name}:${db.host.port}/${db.name}</db.url>
-        <db.user>postgres</db.user>
-        <db.password>password</db.password>
-        <db.schema>palantir</db.schema>
     </properties>
 
     <dependencies>
