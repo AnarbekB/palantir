@@ -27,4 +27,4 @@ jobs:
           KEY: ${{ secrets.SSH_KEY }}
         with:
           source: "./target/app.jar"
-          target: "/usr/test/"
+          target: "/var/palantir/"
