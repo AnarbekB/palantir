@@ -40,5 +40,5 @@ jobs:
           script: |
             cd /var/palantir
             cp /var/palantir/target/app.jar /var/palantir/app.jar
-            rm -rf /var/palantir/target/app.jar
+            rm -rf /var/palantir/target
             ls -al
