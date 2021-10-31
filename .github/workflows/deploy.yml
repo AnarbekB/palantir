@@ -41,4 +41,4 @@ jobs:
             cd /var/palantir
             cp /var/palantir/target/app.jar /var/palantir/app.jar
             rm -rf /var/palantir/target
-            sudo systemctl restart palantir.service
+            systemctl restart palantir.service
