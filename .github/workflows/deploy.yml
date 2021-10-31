@@ -34,3 +34,4 @@ jobs:
         with:
           source: "./target/app.jar"
           target: "/var/palantir/"
+          strip_components: 1
