@@ -18,12 +18,6 @@ jobs:
       - name: Maven Package
         run: mvn -B clean compile package -DskipTests
 
-      - name: Run a multi-line script
-        run: |
-          mkdir ../build
-          cp -TR . ../build
-          tar -cvf deploy.tar ../build/
-
       - name: Copy file via ssh key
         uses: appleboy/scp-action@master
         env:
@@ -35,3 +29,16 @@ jobs:
           source: "./target/app.jar"
           target: "/var/palantir/"
           strip_components: 1
+
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          port: ${{ secrets.SERVER_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /var/palantir
+            cp /var/palantir/target/app.jar /var/palantir/app.jar
+            rm -rf /var/palantir/target/app.jar
+            ls -al
