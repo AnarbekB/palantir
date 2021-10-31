@@ -32,6 +32,6 @@ jobs:
           PORT: ${{ secrets.SERVER_PORT }}
           KEY: ${{ secrets.SSH_KEY }}
         with:
-          source: "./app.jar"
+          source: "./target/app.jar"
           target: "/var/palantir/"
           strip_components: 1
