@@ -30,7 +30,7 @@ public class GitHubServiceAdapter implements SearchGate {
     }
 
     @Override
-    public String gateName() {
+    public String gatName() {
         return "github";
     }
 }

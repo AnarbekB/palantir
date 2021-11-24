@@ -29,7 +29,7 @@ public class HabrServiceAdapter implements SearchGate {
     }
 
     @Override
-    public String gateName() {
+    public String gatName() {
         return "habr";
     }
 }
