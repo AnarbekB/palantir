@@ -27,5 +27,7 @@ service:
     url: https://habr.com
   github:
     url: https://github.com
+   xvideos:
+    url: https://www.xvideos.com
 server:
   port: 8082

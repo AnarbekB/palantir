@@ -30,7 +30,6 @@ class SearchCollectorTest {
 	}
 
 	static class SearchGateStubOne implements SearchGate {
-
 		@Override
 		public String find(String username) {
 			try {
@@ -48,7 +47,6 @@ class SearchCollectorTest {
 	}
 
 	static class SearchGateStubTwo implements SearchGate {
-
 		@Override
 		public String find(String username) {
 			try {
